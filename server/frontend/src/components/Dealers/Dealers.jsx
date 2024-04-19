@@ -26,6 +26,7 @@ const Dealers = () => {
     }
   }
 
+  useEffect(() => {
   const get_dealers = async ()=>{
     const res = await fetch(dealer_url, {
       method: "GET"
@@ -42,9 +43,8 @@ const Dealers = () => {
       setDealersList(all_dealers)
     }
   }
-  useEffect(() => {
     get_dealers();
-  },[]);  
+  },[dealer_url]);  
 
 
 let isLoggedIn = sessionStorage.getItem("username") != null ? true : false;
